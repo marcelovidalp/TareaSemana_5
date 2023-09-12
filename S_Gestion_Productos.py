@@ -14,7 +14,7 @@ class Electronico(Producto):
         print(f"Producto {self.nombre}: \nCategoria: {self.categoria} \nCosto: ${self.precio} \nTipo: {self.tipo}")
 
 class Alimenticio(Producto):
-    def __init__(self, nombre, precio, grupoA):                #Grupo alimentos naturales
+    def __init__(self, nombre, precio, grupoA):                #Grupo alimentos naturales o ultraprocesados
         super().__init__(nombre, precio)
         self.grupoA = grupoA
         self.categoria = "Alimenticio"                                      
