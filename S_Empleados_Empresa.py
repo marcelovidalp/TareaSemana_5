@@ -4,23 +4,29 @@ class Empleado:
         self.edad = edad
         self.salario = salario
 
+    def cal_salario_anual(self):
+        return self.salario * 12
+    
+    def describir_rol(self):
+        return f"Soy {self.nombre}, y tengo {self.edad} años. \n Salario: {self.salario}"
+
 class Gerente(Empleado):
     def __init__(self, nombre, edad, salario, tipo):
         super().__init__(nombre, edad, salario)
         self.tipo = tipo
-        self.lista_gerentes = []
+        self.subordinados = []
 
-    def anadir_gerente(self):
-        if self not in self.lista_gerentes:
-            self.lista_gerentes.append(self)
-            print(f"Se ha añadidio el gerente {self.nombre}")
-            
-    def mostrar_gerentes(self):
-        for i, gerentes in enumerate(self.lista_gerentes):
-            print(f"{i + 1}.- {gerentes}")
+    def asig_subordinados(self, subordinado):
+        self.subordinados.append(subordinado)
+        print(f"{subordinado.nombre} ha sido asignado")
+
+    def lista_subordinados(self):
+        print(f"Lista de subordinados de {self.nombre}")
+        for subordinado in self.subordinados:
+            print(subordinado.nombre)
 
     def describir_rol(self):
-        return f"Soy el {self.tipo}, me llamo {self.nombre} y tengo {self.edad} años. \n Salario: {self.salario}"
+        return f"Soy {self.nombre} y tengo {self.edad} años. \n Salario: {self.salario}"
 
 class Ingeniero(Empleado):
     def __init__(self, nombre, edad, salario, rubro):
@@ -28,10 +34,15 @@ class Ingeniero(Empleado):
         self.rubro = rubro
         self.lista_ing = [] 
 
-    def anadir_ing(self):
-        if self not in self.lista_ing:
-            self.lista_ing.append(self)
-            print(f"Se ha añadido el ingeniero {self.nombre}.")
+    def asign_proyecto(self, proyecto):
+        self.proyecto_asign = proyecto
+        print(f"Ha sido asignado el proyecto {proyecto}")
+
+    def listar_proyecto(self):
+        if self.proyecto_asign:
+            return f"Estoy trabajando el el proyecto {self.proyecto_asign}"
+        else:
+            return "No tengo proyecto asignado por el momento."
 
     def describir_rol(self):
         return f"Soy el {self.rubro}, me llamo {self.nombre} y tengo {self.edad} años. \n Salario: {self.salario}"
@@ -41,34 +52,37 @@ class Asistente(Empleado):
         super().__init__(nombre, edad, salario)
         self.tipo = tipo
 
+    def reuniones(self):
+        print(f"Estoy organizando una reunion para el {self.tipo} {self.nombre}")
+
+    def agenda(self):
+        print(f"Estoy gestionando la agenda del {self.tipo} {self.nombre}")
+
     def describir_rol(self):
         return f"Soy el {self.tipo}, me llamo {self.nombre} y tengo {self.edad} años. \n Salario: {self.salario}"
     
-while True:
-    print("MENU EMPLEADOS.")
-    print("1.- Gerentes.")
-    print("2.- Ingenieros.")
-    print("3.- Asistentes.")
-    print("4.- Salir.")
-    opcion = int(input("Seleccione un opción: "))
 
-    if opcion == 1:
-        print("a) Añadir gerentes.")
-        print("b) Mostrar Gerentes.")
-        subopcion = input("Seleccione una ocpion: ")
+empleado1 = Empleado("Eliana", 34, 46000)
+gerente1 = Gerente("Marcelo", 28, 50000, "Gerente de Produccion")
+ingeniero1 = Ingeniero("Santiago", 27, 32000, "Desarrollo Web")
+asistente1 = Asistente("Juanita", 34, 10000, "Asistente Ejecutiva")
 
-        if subopcion == "a":
-            nuevoGerente = Gerente("Jorge Vidal", 55, 2000000, tipo)
+gerente1.asig_subordinados(ingeniero1)
+gerente1.asig_subordinados(asistente1)
 
-        elif subopcion == "b":
-            mostrar_gerentes()
+ingeniero1.asign_proyecto("Sistema Gestion de Proyectos")
 
-    elif opcion == 2:
-        print("a) Añadir Ingenieros.")
-        print("b) Mostrar Ingenieros.")
-        subopcion2 = input("Seleccione una opcion: ")
+print(empleado1.describir_rol())
+print(gerente1.describir_rol())
+print(ingeniero1.describir_rol())
+print(asistente1.describir_rol())
 
-        if subopcion2 == "a":
-            anadir_ing()
+print(f"El salario de {empleado1.nombre} es {empleado1.cal_salario_anual}")
+
+gerente1.lista_subordinados()
+
+print(ingeniero1.listar_proyecto())
+    
+
 
         
