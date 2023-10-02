@@ -9,7 +9,7 @@ class Perro(Animal):
         self.sonido = "¡GUAU GUAU!"
 
     def hacerSonido(self):
-        return f"{self.nombre} con {self.edad} de edad, esta hdiciendo {self.sonido}"
+        return f"{self.nombre} con {self.edad} años de edad, esta diciendo {self.sonido}"
     
 class Pajaro(Animal):
     def __init__(self, nombre, edad):
@@ -17,7 +17,7 @@ class Pajaro(Animal):
         self.sonido = "¡PIO PIO!"
     
     def hacerSonido(self):
-        return f"{self.nombre} con {self.edad} de edad, esta diciendo {self.sonido}"
+        return f"{self.nombre} con {self.edad} años de edad, esta diciendo {self.sonido}"
         
 
 class Gato(Animal):
@@ -26,7 +26,7 @@ class Gato(Animal):
         self.sonido = "¡Miauu!"
 
     def hacerSonido(self):
-        return f"{self.nombre} con {self.edad} de edad, esta diciendo {self.sonido}"
+        return f"{self.nombre} con {self.edad} años de edad, esta diciendo {self.sonido}"
     
 animal1 = Perro("Tomy", 5)
 print(animal1.hacerSonido())
