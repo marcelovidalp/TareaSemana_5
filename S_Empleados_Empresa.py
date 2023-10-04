@@ -18,9 +18,9 @@ class Gerente(Empleado):
 
     def asig_subordinados(self, subordinado):
         self.subordinados.append(subordinado)
-        print(f"{subordinado.nombre} ha sido asignado")
+        print(f"{subordinado.nombre} ha sido asignado a {self.nombre}")
 
-    def lista_subordinados(self):
+    def listar_subordinados(self):
         print(f"Lista de subordinados de {self.nombre}")
         for subordinado in self.subordinados:
             print(subordinado.nombre)
@@ -63,7 +63,7 @@ class Asistente(Empleado):
     
 
 empleado1 = Empleado("Eliana", 34, 46000)
-gerente1 = Gerente("Marcelo", 28, 50000, "Gerente de Produccion")
+gerente1 = Gerente("Jorge", 28, 50000, "Gerente de Produccion")
 ingeniero1 = Ingeniero("Santiago", 27, 32000, "Desarrollo Web")
 asistente1 = Asistente("Juanita", 34, 10000, "Asistente Ejecutiva")
 
@@ -79,9 +79,9 @@ print(asistente1.describir_rol())
 
 print(f"El salario de {empleado1.nombre} es {empleado1.cal_salario_anual}")
 
-gerente1.lista_subordinados()
+gerente1.listar_subordinados()
 
-print(ingeniero1.listar_proyecto())
+
     
 
 
