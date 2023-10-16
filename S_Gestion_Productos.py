@@ -5,7 +5,7 @@ class Producto:
         self.categoria = "Indefinida"
 
 class Electronico(Producto):
-    def __init__(self, nombre, precio, tipo):                  #Tipo industrial o domestico
+    def __init__(self, nombre, precio, tipo):                  #Tipo industrial, domestico, telecomunicaciones, alumbrado
         super().__init__(nombre, precio)
         self.tipo = tipo
         self.categoria = "Electronico"

@@ -18,7 +18,7 @@ class Gerente(Empleado):
 
     def asig_subordinados(self, subordinado):
         self.subordinados.append(subordinado)
-        print(f"{subordinado.nombre} ha sido asignado a {self.nombre}")
+        print(f"{subordinado.nombre} ha sido asignado a {self.nombre}\n")
 
     def listar_subordinados(self):
         print(f"Lista de subordinados de {self.nombre}")
@@ -64,7 +64,7 @@ class Asistente(Empleado):
 
 empleado1 = Empleado("Eliana", 34, 46000)
 gerente1 = Gerente("Jorge", 28, 50000, "Gerente de Produccion")
-ingeniero1 = Ingeniero("Santiago", 27, 32000, "Desarrollo Web")
+ingeniero1 = Ingeniero("Santiago", 27, 32000, "Desarrollador Web")
 asistente1 = Asistente("Juanita", 34, 10000, "Asistente Ejecutiva")
 
 gerente1.asig_subordinados(ingeniero1)
